@@ -1,0 +1,17 @@
+.btn-secondary{
+    color: white;
+    display: none;
+}
+
+body {
+    background-image: url('https://images.pexels.com/photos/450055/pexels-photo-450055.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-size: cover;
+    background-position: center;
+}
+.shadow-card {
+    box-shadow: 0 0 10px red;
+}
+
+div .shadow-card {
+    color: white;
+}

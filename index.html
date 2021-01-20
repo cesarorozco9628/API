@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trivia by beast team</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-dark shadow-card">
+                    <div class="card-body">
+                        <form action="/questions" id="form-questions">
+                            <div class="form-group">
+                                <label for="total-questions">Total questions</label>
+                                <input type="number" required="required" class="form-control" id="total-questions" placeholder="Ingrese el numero del preguntas del 1 al 50">
+                            </div>
+                            <div class="form-group">
+                                <label for="categories">Category</label>
+                                <select class="form-control" id="categories">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="difficulty">difficulty</label>
+                                <select class="form-control" id="difficulty">
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option> 
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">type</label>
+                                <select class="form-control" id="type">
+                                    <option value="multiple">multi-option</option>
+                                    <option value="boolean">true or false</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-block" id="send-answers">
+                                Obtener respuestas
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+    <script type="module"  src="./main.js"></script>
+    <script src="./style.js"></script>
 </body>
 </html>
