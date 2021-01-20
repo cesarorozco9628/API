@@ -75,4 +75,14 @@ export default class UI {
 
         
     }
+        static GetAnswers() {
+        let LaRespuesta = document.querySelectorAll(".form-check-input");
+        LaRespuesta.forEach((question) => {
+            if (question.checked) {
+                question.checked = false 
+            }
+        })
+        console.log(LaRespuesta);
+    }
+
 }
