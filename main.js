@@ -10,4 +10,11 @@ form.addEventListener('submit', (event) => {
     Request.getQuestions()
         .then(response => response.json())
         .then(data => UI.printQuestions(data.results))
+
+        
+Request.getCategories()  
+.then(response => response.json())
+.then(data => UI.printCategories(data.trivia_categories))
+
+
 });
