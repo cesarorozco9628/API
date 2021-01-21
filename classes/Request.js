@@ -3,6 +3,7 @@ export default class Request {
     static getCategories() {
         return fetch('https://opentdb.com/api_category.php')
     }
+    // solo para ver si sirve =)
     static getQuestions() {
         // const result = this.getFilters();
         const [amount, category, difficulty, type] = this.getFilters();
