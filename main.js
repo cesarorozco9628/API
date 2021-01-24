@@ -18,10 +18,9 @@ Request.getCategories()
 
 
 
-
 const form2 = document.querySelector('#respuesta-del-usuario')
 
 form2.addEventListener('submit', (event) => {
     event.preventDefault();
-    UI.GetAnswers()
+    UI.getAnswers()
 })

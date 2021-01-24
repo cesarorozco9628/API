@@ -1,3 +1,4 @@
+
 export default class UI {
     static printCategories(categories) {
         const container = document.getElementById('categories');
@@ -16,25 +17,25 @@ export default class UI {
                                                 <label>${question.question}</label>
                                                     
                                                         <div name="respuestas" class="form-check">
-                                                        <input class="form-check-input" name="${question.question}" type="radio" value="" id="${question.incorrect_answers[0]}">
+                                                        <input class="form-check-input" name="${question.question}" type="radio" value="${question.incorrect_answers[0]}" id="${question.incorrect_answers[0]}" >
                                                         <label class="form-check-label" for="${question.incorrect_answers[0]}">
                                                         ${question.incorrect_answers[0]}
                                                         </label>
                                                         </div>
                                                         <div class="form-check">
-                                                        <input class="form-check-input" name="${question.question}" type="radio" value="" id="${question.correct_answer}">
+                                                        <input class="form-check-input" name="${question.question}" type="radio" value="${question.correct_answer} id="${question.correct_answer}">
                                                         <label class="form-check-label" for="${question.correct_answer}">
                                                         ${question.correct_answer}
                                                         </label>
                                                         </div>
                                                         <div class="form-check">
-                                                        <input class="form-check-input" name="${question.question}" type="radio" value="" id="${question.incorrect_answers[2]}">
+                                                        <input class="form-check-input" name="${question.question}" type="radio" value="${question.incorrect_answers[2]} id="${question.incorrect_answers[2]}">
                                                         <label class="form-check-label" for="${question.incorrect_answers[2]}">
                                                         ${question.incorrect_answers[2]}
                                                         </label>
                                                         </div>
                                                         <div class="form-check">
-                                                        <input class="form-check-input" name="${question.question}" type="radio" value="" id="${question.incorrect_answers[1]}">
+                                                        <input class="form-check-input" name="${question.question}" type="radio" value="${question.incorrect_answers[1]} id="${question.incorrect_answers[1]}">
                                                         <label class="form-check-label" for="${question.incorrect_answers[1]}">
                                                         ${question.incorrect_answers[1]}
                                                         </label>
@@ -72,17 +73,31 @@ export default class UI {
             })
          };
          
+         let allAnswers = [];
+         questions.forEach(resp => {
+             allAnswers.push(resp.correct_answer);
+         })
+        return  allAnswers;
 
         
     }
-        static GetAnswers() {
-        let LaRespuesta = document.querySelectorAll(".form-check-input:checked");
-        LaRespuesta.forEach((question) => {
-            if (question.checked) {
-                question.checked = false 
-            }
-        })
-        console.log(LaRespuesta);
-    }
 
+    static getAnswers() {
+        const allAnswer =  this.printQuestions; 
+        let LaRespuesta = document.querySelectorAll(".form-check-input:checked");
+        let print = document.getElementById('print');
+        let count =0;
+        for(let i =0; i< LaRespuesta.length; i++){
+            for(let j =0; j < allAnswer.length ; j++){
+                if(LaRespuesta[i] === allAnswer[j]){
+
+                    count += 1;
+                }
+            }
+        }
+        print.innerHTML = `<div class="col-md-4">
+                              <p>Las respuestas correctas son: </p>
+                           </div>`;
+    }
+    
 }
