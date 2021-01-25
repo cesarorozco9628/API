@@ -54,13 +54,13 @@ export default class UI {
                                                 <div class="card-body" >
                                                     <label>${question.question}</label>
                                                             <div class="form-check">
-                                                                <input required="required" class="form-check-input" name="${question.question}" type="radio" id="checkbox${question.incorrect_answers[0]}">
+                                                                <input required="required" class="form-check-input" name="${question.question}" type="radio" id="${question.incorrect_answers[0]}">
                                                                 <label class="form-check-label" for="${question.incorrect_answers[0]}">
                                                                         ${question.incorrect_answers[0]}
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input required="required" class="form-check-input" name="${question.question}" type="radio" id="checkbox${question.correct_answer}">
+                                                                <input required="required" class="form-check-input" name="${question.question}" type="radio" id="${question.correct_answer}">
                                                                 <label class="form-check-label" for="${question.correct_answer}">
                                                                         ${question.correct_answer}
                                                                 </label>
@@ -74,14 +74,22 @@ export default class UI {
 
         
     }
-        static getAnswers() {
-        let LaRespuesta = document.querySelectorAll(".form-check-input:checked");
-        LaRespuesta.forEach((question) => {
-            if (question.checked) {
-                question.checked = false 
-            }
-        })
-        console.log(LaRespuesta);
-    }
 
+    static GetAnswers(quest) {
+        const allAnswer =  this.printQuestions; 
+        let LaRespuesta = document.querySelectorAll(".form-check-input:checked");
+        let print = document.getElementById('print');
+        let count =0;
+        for(let i =0; i< LaRespuesta.length; i++){
+            for(let j =0; j < allAnswer.length ; j++){
+                if(LaRespuesta[i] === allAnswer[j]){
+                    count += 1;
+                }
+            }
+        }
+        print.innerHTML = `<div class="col-md-4 text-color">
+                              <p>Las respuestas correctas son: ${count}</p>
+                           </div>`;
+    }
+    
 }
