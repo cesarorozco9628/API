@@ -78,6 +78,7 @@ export default class UI {
     }
 
 
+
     static GetAnswers() {
         // primero obtener las respuestas correctas 
        let correctAnswers = this.correctAnswers;
@@ -90,6 +91,7 @@ export default class UI {
                     count += 100/LaRespuesta.length;
                 }
             })
+
 
         })
 
